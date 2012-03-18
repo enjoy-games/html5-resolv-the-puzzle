@@ -1,0 +1,6 @@
+body { background-color:aliceblue; margin:0px; cursor:default; font-family: 'Happy Monkey', cursive; font-size:16px; }
+#howTo, #gameScreen, #gameInfo { float:left; box-shadow:10px 10px 20px #888888; margin:5px; }
+#howTo, #gameInfo { width:126px; height:535px; border:1px solid coral; border-radius:10px; background-color:#FFAF80; padding:2px; }
+#howTo header, #gameInfo header { border-bottom:1px solid coral; text-align:center;  }
+#howTo ul { padding-left:20px; }
+#gameScreen { width:540px; height:540px; border:1px solid #888888; cursor:pointer; }
