@@ -17,7 +17,7 @@
    <br>
    Get fun!
   </section>
-  <canvas id="gameScreen">Your browser is not compatible with canvas element (html5).</canvas>
+  <canvas id="gameScreen" onmousedown="mouse.listenMousedown(event);" onmouseup="mouse.listenMouseup(event);">Your browser is not compatible with canvas element (html5).</canvas>
   <section id="gameInfo">
    <header>Game info</header>
    <label id="lblInfo">Click on start to play.</label>
