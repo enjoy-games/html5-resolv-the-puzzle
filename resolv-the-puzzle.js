@@ -103,4 +103,17 @@ var screen = gameScreen.getContext('2d');
 var mouse = new MouseListener();
 var squareMoving = null;
 var board = new Board();
+var fps = 60;
+var gameLoopId = null;
+var gameState = 'begin';
+var dark = new Image(); dark.src = 'img/dark.png';
+var test = new Image(); test.src = 'img/test.png';
 
+function gameLoop() {
+ if (gameState == 'begin') screen.drawImage(dark, 0, 0);
+ else if (gameState == 'game') {
+  clearInterval(gameLoopId);
+  document.getElementById("btnStartGame").className='hide';
+  screen.drawImage(test, 0, 0);
+ }
+}

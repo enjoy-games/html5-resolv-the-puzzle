@@ -3,9 +3,10 @@
  <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Happy+Monkey">
+  <link href="http://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
   <link rel="stylesheet" href="resolv-the-puzzle.css">
  </head>
- <body oncontextmenu="return false;">
+ <body oncontextmenu="return false;" onload="gameLoopId = setInterval('gameLoop()',1000/fps);">
   <section id="howTo">
    <header>How to play?</header>
    There are 8 pieces to move to get the image right.<br>
@@ -17,6 +18,7 @@
    <br>
    Get fun!
   </section>
+  <button id="btnStartGame" onclick="gameState = 'game';">START</button>
   <canvas id="gameScreen" onmousedown="mouse.listenMousedown(event);" onmouseup="mouse.listenMouseup(event);">Your browser is not compatible with canvas element (html5).</canvas>
   <section id="gameInfo">
    <header>Game info</header>

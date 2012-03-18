@@ -4,3 +4,5 @@ body { background-color:aliceblue; margin:0px; cursor:default; font-family: 'Hap
 #howTo header, #gameInfo header { border-bottom:1px solid coral; text-align:center;  }
 #howTo ul { padding-left:20px; }
 #gameScreen { width:540px; height:540px; border:1px solid #888888; cursor:pointer; }
+#btnStartGame { width:91px; height:44px; position:absolute; margin-left:230px; margin-top:230px; font-family: 'Londrina Shadow', cursive; font-size:32px; }
+.hide { display:none; }
