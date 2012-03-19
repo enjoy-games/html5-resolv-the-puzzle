@@ -115,6 +115,7 @@ var gameLoopId = null;
 var gameState = 'begin';
 var dark = new Image(); dark.src = 'img/dark.png';
 var bird = new Image(); bird.src = 'img/bird.png';
+var nullSquare = new Image(); nullSquare.src = 'img/null.png';
 var lblInfo = document.getElementById('lblInfo');
 var time = 0;
 var timeIntervalId = null;
@@ -142,6 +143,7 @@ function game() {
  for (i = 0, y = 0; y < 3; y++)
   for (x = 0; x < 3; x++, i++) {
    screen.drawImage(bird, board.points[x], board.points[y], 180, 180, board.squares[i].xPos, board.squares[i].yPos, 180, 180);
+   if (x == 0 && y == 0) screen.drawImage(nullSquare, 0, 0);
    screen.beginPath();
    screen.rect(board.squares[i].xPos+1, board.squares[i].yPos+1, 180, 180);
    screen.lineWidth = 1;
