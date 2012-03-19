@@ -114,7 +114,7 @@ var fps = 60;
 var gameLoopId = null;
 var gameState = 'begin';
 var dark = new Image(); dark.src = 'img/dark.png';
-var test = new Image(); test.src = 'img/test.png';
+var bird = new Image(); bird.src = 'img/bird.png';
 var lblInfo = document.getElementById('lblInfo');
 var time = 0;
 var timeIntervalId = null;
@@ -141,7 +141,7 @@ function game() {
  gameScreen.width = gameScreen.width;
  for (i = 0, y = 0; y < 3; y++)
   for (x = 0; x < 3; x++, i++)
-   screen.drawImage(test, board.points[x], board.points[y], 180, 180, board.squares[i].xPos, board.squares[i].yPos, 180, 180);
+   screen.drawImage(bird, board.points[x], board.points[y], 180, 180, board.squares[i].xPos, board.squares[i].yPos, 180, 180);
 }
 
 function gameLoop() {
