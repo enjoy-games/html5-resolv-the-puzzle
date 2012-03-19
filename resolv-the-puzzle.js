@@ -72,6 +72,11 @@ function Board() {
      if (cell.y == 1) { leftCell.y = 1;    topCell.y = 0;    rightCell.y = 1;    bottomCell.y = 2;    }
      if (cell.y == 2) { leftCell.y = 2;    topCell.y = 1;    rightCell.y = 2;    bottomCell.y = null; }
 
+     if (leftCell.x == null || leftCell.y == null) leftCell = null;
+     if (topCell.x == null || topCell.y == null) topCell = null;
+     if (rightCell.x == null || rightCell.y == null) rightCell = null;
+     if (bottomCell.x == null || bottomCell.y == null) bottomCell = null;
+
      for (j = 1; j < 9; j++) {
       var seek2 = this.getCell(this.squares[j].xPos, this.squares[j].yPos);
       if (leftCell != null) {
@@ -126,7 +131,7 @@ function game() {
   target = board.canMove(board.getCell(mouse.x, mouse.y));
 
   if (target != null) {
-   squareMoving = setInterval('board.squares[target.index].setPosition(board.points[target.x], board.points[target.y]);', 1);
+   squareMoving = setInterval('board.squares[target.index].setPosition(board.points[target.x], board.points[target.y]);', 1000/fps);
    movements++;
   }
  }
