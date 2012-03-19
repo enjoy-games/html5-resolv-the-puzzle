@@ -136,34 +136,51 @@ function startGame() {
   timeIntervalId = setInterval('time++;',1000);
 }
 
-function game() {
- if (squareMoving == null && mouse.x != null && mouse.y != null) {
-  target = board.canMove(board.getCell(mouse.x, mouse.y));
+function imageIsFit() {
+ var isFit = true;
 
-  if (target != null) {
-   squareMoving = setInterval('board.squares[target.index].setPosition(board.points[target.x], board.points[target.y]);', 1000/fps);
-   movements++;
-  }
- }
-
- lblInfo.innerHTML = 'Game started<br>Time: '+time+'s<br>Movements: '+movements;
-
- gameScreen.width = gameScreen.width;
  for (i = 0, y = 0; y < 3; y++)
-  for (x = 0; x < 3; x++, i++) {
-   screen.drawImage(bird, board.points[x], board.points[y], 180, 180, board.squares[i].xPos, board.squares[i].yPos, 180, 180);
-   if (x == 0 && y == 0) screen.drawImage(nullSquare, 0, 0);
-   screen.beginPath();
-   screen.rect(board.squares[i].xPos+1, board.squares[i].yPos+1, 180, 180);
-   screen.lineWidth = 1;
-   screen.strokeStyle = "#0000FF";
-   screen.stroke();
+  for (x = 0; x < 3; x++, i++)
+   if (board.squares[i].xPos != board.points[x] || board.squares[i].yPos != board.points[y]) isFit = false;
+
+ return isFit;
+}
+
+function game() {
+ if (imageIsFit() == false) {
+  if (squareMoving == null && mouse.x != null && mouse.y != null) {
+   target = board.canMove(board.getCell(mouse.x, mouse.y));
+
+   if (target != null) {
+    squareMoving = setInterval('board.squares[target.index].setPosition(board.points[target.x], board.points[target.y]);', 1000/fps);
+    movements++;
+   }
   }
+
+  lblInfo.innerHTML = 'Game started<br>Time: '+time+'s<br>Movements: '+movements;
+
+  gameScreen.width = gameScreen.width;
+  for (i = 0, y = 0; y < 3; y++)
+   for (x = 0; x < 3; x++, i++) {
+    screen.drawImage(bird, board.points[x], board.points[y], 180, 180, board.squares[i].xPos, board.squares[i].yPos, 180, 180);
+    if (x == 0 && y == 0) screen.drawImage(nullSquare, 0, 0);
+    screen.beginPath();
+    screen.rect(board.squares[i].xPos+1, board.squares[i].yPos+1, 180, 180);
+    screen.lineWidth = 1;
+    screen.strokeStyle = "#0000FF";
+    screen.stroke();
+   }
+ } else {
+  gameState = 'end';
+  lblInfo.innerHTML += '<br>Puzzle complete.<br>Reload the page to start again.';
+  document.getElementById('lblEndGame').className = '';
+  screen.drawImage(bird, 0, 0);
+ }
 }
 
 function gameLoop() {
  if (gameState == 'begin') screen.drawImage(dark, 0, 0);
  else if (gameState == 'game') game();
- else { clearInterval(gameLoopId); clearInterval(timeIntervalId) }
+ else { clearInterval(gameLoopId); clearInterval(timeIntervalId); }
 }
 
