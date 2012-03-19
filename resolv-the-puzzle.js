@@ -40,7 +40,16 @@ function Square(xPosition, yPosition) {
 function Board() {
  // Properties.
  this.points = new Array(); this.points[0] = 0; this.points[1] = 180; this.points[2] = 360; this.points[3] = 540;
- this.squares = new Array(); for (i = 0, y = 0; y < 3; y++) for (x = 0; x < 3; x++, i++) this.squares[i] = new Square(this.points[x], this.points[y]);
+ this.squares = new Array();
+ this.squares[0] = new Square(0, 0);
+ this.squares[1] = new Square(180, 360);
+ this.squares[2] = new Square(180, 180);
+ this.squares[3] = new Square(0, 180);
+ this.squares[4] = new Square(360, 360);
+ this.squares[5] = new Square(360, 0);
+ this.squares[6] = new Square(180, 0);
+ this.squares[7] = new Square(360, 180);
+ this.squares[8] = new Square(0, 360);
 
  // Methods.
  this.getCell = function(xPixel, yPixel) {
