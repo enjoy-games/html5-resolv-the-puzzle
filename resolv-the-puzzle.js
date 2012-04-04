@@ -200,7 +200,7 @@ function game() {
    }
  } else {
   gameState = 'end';
-  lblInfo.innerHTML += '<br>Puzzle complete.<br>Reload the page to start again.';
+  lblInfo.innerHTML += '<br><br><h5>Puzzle completed.</h5>Reload the page to start again.';
   document.getElementById('lblEndGame').className = '';
   bufferContext.drawImage(bird, 0, 0);
  }
