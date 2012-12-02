@@ -227,7 +227,9 @@ function gameLoop() {
  stats_fps.begin();
  stats_ms.begin();
 
- gameLoopId = window.requestAnimationFrame(gameLoop);
+ setTimeout(function() {
+  gameLoopId = window.requestAnimationFrame(gameLoop);
+ }, 30);
  if (gameState == 'begin') bufferContext.drawImage(dark, 0, 0);
  else if (gameState == 'game') game();
  else { window.cancelAnimationFrame(gameLoopId); clearInterval(timeIntervalId); }
