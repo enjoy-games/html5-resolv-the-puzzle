@@ -155,10 +155,27 @@ var time = 0;
 var timeIntervalId = null;
 var movements = 0;
 
+// Stats.
+var stats_fps = new Stats(), stats_ms = new Stats();
+stats_fps.setMode(0); stats_ms.setMode(1); // 0: fps, 1: ms
+// Align top-left
+stats_fps.domElement.style.position = 'absolute';
+stats_fps.domElement.style.left = '0px';
+stats_fps.domElement.style.top = '0px';
+// Align top-left
+stats_ms.domElement.style.position = 'absolute';
+stats_ms.domElement.style.left = '100px';
+stats_ms.domElement.style.top = '0px';
+
 function startGame() {
   document.getElementById("btnStartGame").className='hide';
   gameState = 'game';
   timeIntervalId = setInterval('time++;',1000);
+
+  /** /
+  document.body.appendChild( stats_fps.domElement );
+  document.body.appendChild( stats_ms.domElement );
+ /**/
 }
 
 function imageIsFit() {
@@ -207,10 +224,16 @@ function game() {
 }
 
 function gameLoop() {
+ stats_fps.begin();
+ stats_ms.begin();
+
  gameLoopId = window.requestAnimationFrame(gameLoop);
  if (gameState == 'begin') bufferContext.drawImage(dark, 0, 0);
  else if (gameState == 'game') game();
  else { window.cancelAnimationFrame(gameLoopId); clearInterval(timeIntervalId); }
  screen.drawImage(bufferCanvas, 0, 0);
+
+ stats_fps.end();
+ stats_ms.end();
 }
 
