@@ -7,4 +7,4 @@ It is multi-plattform game -you need a web browser compatible with canvas and Ja
 
 [Play it!](http://binary-sequence.github.com/html5-resolv-the-puzzle/)
 
-<img src="https://lh6.googleusercontent.com/-ClWurIepbac/UKSsp2ZSxAI/AAAAAAAACII/yKfjsvwXCgs/s800/html5-resolv-the-puzzle.jpg" style="border:0;">
+<img src="https://raw.github.com/binary-sequence/html5-resolv-the-puzzle/master/screenshot-resolv-the-puzzle.jpg" style="border:0;">
